@@ -46,7 +46,11 @@ public class ReusablePoolTest {
 	@Test
 	public void testGetInstance() {
 		
+		ReusablePool pool=ReusablePool.getInstance();
 		
+		assertNotNull("Objeto nulo",pool);
+		
+		assertTrue(pool instanceof ReusablePool);
 	}
 
 	/**
@@ -54,8 +58,6 @@ public class ReusablePoolTest {
 	 */
 	@Test
 	public void testAcquireReusable() {
-		
-		
 		
 		
 	}
