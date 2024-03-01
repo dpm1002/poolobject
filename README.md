@@ -15,18 +15,18 @@ Authors:
 - David Pérez Moreno
 - Miguel Alonso Alonso
 
-##PREGUNTAS SOBRE EL TRABAJO REALIZADO SOBRE LA PRÁCTICA
+## PREGUNTAS SOBRE EL TRABAJO REALIZADO SOBRE LA PRÁCTICA
 
-###¿Se ha realizado trabajo en equipo?
-
-
-###¿Tiene calidad el conjunto de pruebas disponibles?
+### ¿Se ha realizado trabajo en equipo?
 
 
-###¿Cuál es el esfuerzo invertido en realizar la actividad?
+### ¿Tiene calidad el conjunto de pruebas disponibles?
 
 
-###¿Cuál es el número de fallos encontrados en el código original?
+### ¿Cuál es el esfuerzo invertido en realizar la actividad?
 
 
-###¿El proceso de integración continua realizado ha sido de calidad?
+### ¿Cuál es el número de fallos encontrados en el código original?
+
+
+### ¿El proceso de integración continua realizado ha sido de calidad?
