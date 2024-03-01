@@ -12,7 +12,8 @@ import ubu.gii.dass.c01.Reusable;
 import ubu.gii.dass.c01.ReusablePool;
 
 /**
- * @author alumno
+ * @author David Perez Moreno
+ * @author Miguel Alonso Alonso
  *
  */
 
@@ -42,6 +43,10 @@ public class ReusablePoolTest {
 
 	/**
 	 * Test method for {@link ubu.gii.dass.c01.ReusablePool#getInstance()}.
+	 * 
+	 * Obtenemos una instancia y comprobamos que no es nula y que sea del tipo
+	 * ReusablePool.
+	 * 
 	 */
 	@Test
 	public void testGetInstance() {
@@ -50,11 +55,18 @@ public class ReusablePoolTest {
 		
 		assertNotNull("Objeto nulo",pool);
 		
+		assertTrue(pool instanceof ReusablePool);
 	}
 
 	/**
+	 * 
 	 * Test method for {@link ubu.gii.dass.c01.ReusablePool#acquireReusable()}.
+	 * 
+	 * Creamos un Reusable pool donde luego obtendremos el reusable con el
+	 * acquireReusable() y comprobaremos que no es nulo.
+	 * 
 	 * @throws NotFreeInstanceException 
+	 * 
 	 */
 	@Test
 	public void testAcquireReusable() throws NotFreeInstanceException {
@@ -67,21 +79,66 @@ public class ReusablePoolTest {
 		assertNotNull(r1);
 			
 		
-		
-		
 	}
 
 	/**
-	 * Test method for {@link ubu.gii.dass.c01.ReusablePool#releaseReusable(ubu.gii.dass.c01.Reusable)}.
-	 * @throws DuplicatedInstanceException 
-	 */
+	 * 
+	 * Test para la cobertura del codigo de la clase NotFreeInstanceException.
+	 * 
+	 * El segundo pool.acquireReusable(); no realiza cobertura pero es porque salta
+	 * la excepcion del primero al adquirir dos Reusables cuando solo
+	 * hemos declarado uno en el constructor.
+	 * 
+	 * */
+
 	@Test
-	public void testReleaseReusable() throws DuplicatedInstanceException {
+	public void testAcquireReusableFail() {
+		
+		
+		ReusablePool pool = new ReusablePool(1); 
+	    
+	    try {
+	        pool.acquireReusable(); 
+	        //En el siguiente se lanzara la excepion y se va al catch.
+	        pool.acquireReusable();
+	        
+	    } catch (NotFreeInstanceException e) {
+	        // La prueba es exitosa si se captura NotFreeInstanceException.
+	    	e.printStackTrace();
+	    }
 		
 		
 	}
+	
+	
+	/**
+	 * Test method for {@link ubu.gii.dass.c01.ReusablePool#releaseReusable(ubu.gii.dass.c01.Reusable)}.
+	 * 
+	 * En este test comprobaremos el adquirir un reusable y luego comprobar, tanto que
+	 * se obtiene su hash, tanto como de la liberacion de este reusable y que se
+	 * realice correctamente.
+	 * 
+	 * @throws DuplicatedInstanceException 
+	 * @throws NotFreeInstanceException 
+	 */
+	@Test
+	public void testReleaseReusable() throws DuplicatedInstanceException, NotFreeInstanceException {
+		ReusablePool pool = new ReusablePool(1);
+			
+		Reusable r1 = null;
+				
+		r1=pool.acquireReusable();
+				
+		String hash=r1.util();
+				
+		pool.releaseReusable(r1);
+		
+		assertNotNull(r1);
+				
+		
+	}
+	
 	
 	
 
 }
-
