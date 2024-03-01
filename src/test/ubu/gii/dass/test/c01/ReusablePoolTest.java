@@ -12,7 +12,8 @@ import ubu.gii.dass.c01.Reusable;
 import ubu.gii.dass.c01.ReusablePool;
 
 /**
- * @author alumno
+ * @author David Perez Moreno
+ * @author Miguel Alonso Alonso
  *
  */
 
@@ -55,9 +56,19 @@ public class ReusablePoolTest {
 
 	/**
 	 * Test method for {@link ubu.gii.dass.c01.ReusablePool#acquireReusable()}.
+	 * @throws NotFreeInstanceException 
 	 */
 	@Test
-	public void testAcquireReusable() {
+	public void testAcquireReusable() throws NotFreeInstanceException {
+		ReusablePool pool= new ReusablePool(1);
+		
+		Reusable r1 = null;
+			
+		r1=pool.acquireReusable();
+			
+		assertNotNull(r1);
+			
+		
 		
 		
 	}
