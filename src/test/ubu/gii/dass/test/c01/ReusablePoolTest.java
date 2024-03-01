@@ -116,7 +116,7 @@ public class ReusablePoolTest {
 	 * 
 	 * En este test comprobaremos el adquirir un reusable y luego comprobar, tanto que
 	 * se obtiene su hash, tanto como de la liberacion de este reusable y que se
-	 * realice correctamente.
+	 * realice correctamente. 
 	 * 
 	 * @throws DuplicatedInstanceException 
 	 * @throws NotFreeInstanceException 
