@@ -50,14 +50,23 @@ public class ReusablePoolTest {
 		
 		assertNotNull("Objeto nulo",pool);
 		
-		assertTrue(pool instanceof ReusablePool);
 	}
 
 	/**
 	 * Test method for {@link ubu.gii.dass.c01.ReusablePool#acquireReusable()}.
+	 * @throws NotFreeInstanceException 
 	 */
 	@Test
-	public void testAcquireReusable() {
+	public void testAcquireReusable() throws NotFreeInstanceException {
+		ReusablePool pool= new ReusablePool(1);
+		
+		Reusable r1 = null;
+			
+		r1=pool.acquireReusable();
+			
+		assertNotNull(r1);
+			
+		
 		
 		
 	}
@@ -71,6 +80,8 @@ public class ReusablePoolTest {
 		
 		
 	}
+	
+	
 
 }
 
