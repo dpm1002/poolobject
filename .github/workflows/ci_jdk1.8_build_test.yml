@@ -20,3 +20,4 @@ jobs:
         with:
               token: ${{ secrets.CODECOV_TOKEN }}
               slug: dpm1002/poolobject
+
