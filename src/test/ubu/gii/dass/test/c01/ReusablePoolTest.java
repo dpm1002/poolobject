@@ -6,6 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import ubu.gii.dass.c01.Client;
 import ubu.gii.dass.c01.DuplicatedInstanceException;
 import ubu.gii.dass.c01.NotFreeInstanceException;
 import ubu.gii.dass.c01.Reusable;
@@ -83,6 +84,8 @@ public class ReusablePoolTest {
 
 	/**
 	 * 
+	 * Test method for {@link ubu.gii.dass.c01.NotFreeInstanceException}.
+	 * 
 	 * Test para la cobertura del codigo de la clase NotFreeInstanceException.
 	 * 
 	 * El segundo pool.acquireReusable(); no realiza cobertura pero es porque salta
@@ -138,7 +141,64 @@ public class ReusablePoolTest {
 		
 	}
 	
+	/**
+	 * 
+	 * Test method for {@link ubu.gii.dass.c01.DuplicatedInstanceException}.
+	 * 
+	 * Test para la cobertura del codigo de la clase DuplicatedInstanceException.
+	 * 
+	 * El segundo pool.releaseReusable(r1); no realiza cobertura pero es porque salta
+	 * la excepcion del primero al ser un reusable duplicado lanzado la excepcion
+	 * DuplicatedInstanceException.
+	 * 
+	 */
 	
+	@Test
+	public void testReleaseReusableDuplicated() throws DuplicatedInstanceException, NotFreeInstanceException {
+		ReusablePool pool = new ReusablePool(1);
+		try {
+					
+				Reusable r1 = null;
+					
+				r1=pool.acquireReusable();
+				
+				String hash=r1.util();
+				
+				pool.releaseReusable(r1);
+				//En el siguiente se lanzara la excepion y se va al catch.
+				pool.releaseReusable(r1);
+				
+			} catch (DuplicatedInstanceException e) {
+				e.printStackTrace();
+			}
+		
+	}
+	
+	/**
+	 * 
+	 * Test method for {@link ubu.gii.dass.c01.Client}.
+	 * 
+	 * Test para la cobertura del codigo de la clase Client.
+	 * 
+	 * Realizamos un test para la clase Cliente. Siendo asi una creaccion de este
+	 * viendo que no sea nulo al crearlo y ejecutando el main(), basicamente
+	 * para tener cobertura completa del codigo.
+	 * 
+	 */
+	
+	
+	@SuppressWarnings("static-access")
+	@Test
+	public void testClient() throws NotFreeInstanceException, DuplicatedInstanceException {
+		
+		Client cliente= new Client();
+		
+		assertNotNull(cliente);
+		
+		cliente.main(null);
+		
+		
+	}
 	
 
 }
