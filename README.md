@@ -7,7 +7,7 @@ Esta es la primera práctica de desarrollo avanzado de sistemas software. En est
 [![Java CI](https://github.com/dpm1002/poolobject/actions/workflows/ci_jdk11_build.yml/badge.svg)](https://github.com/dpm1002/poolobject/actions/workflows/ci_jdk11_build.yml) 	
 [![Java CI](https://github.com/dpm1002/poolobject/actions/workflows/ci_jdk1.8_build_test.yml/badge.svg)](https://github.com/dpm1002/poolobject/actions/workflows/ci_jdk1.8_build_test.yml) 	
 [![codecov](https://codecov.io/gh/dpm1002/poolobject/graph/badge.svg?token=U3Y5OVYT9P)](https://codecov.io/gh/dpm1002/poolobject)
-
+[![Test Coverage](https://api.codeclimate.com/v1/badges/040e5436165531d93e91/test_coverage)](https://codeclimate.com/github/dpm1002/poolobject/test_coverage)
 
 Java code example of creational design pattern pool object
 
