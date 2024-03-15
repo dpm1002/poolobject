@@ -9,9 +9,20 @@ jobs:
     name: SonarCloud
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+
+      - name: Set up JDK 11  # Especifica la versión de JDK que necesitas para tu proyecto
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'  # Por ejemplo, JDK 11
+          distribution: 'adopt'
+      
+      - name: Build with Maven
+        run: mvn clean install -DskipTests  # Compila el proyecto y salta los tests
+
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
