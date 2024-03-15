@@ -13,17 +13,29 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <sonar.organization>dpm1002</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <!-- Otras propiedades pueden ir aquí -->
+        <!-- Añade aquí otras propiedades como encoding del proyecto si es necesario -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
-        <!-- Las dependencias de tu proyecto van aquí -->
+        <!-- Dependencia de JUnit para pruebas -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
-	<sourceDirectory>src/main/ubu/gii/dass/c01</sourceDirectory>
+        <!-- Especifica el directorio principal de tus fuentes de código. -->
+        <sourceDirectory>src/main/ubu/gii/dass/c01</sourceDirectory>
+
+        <!-- Directorio de fuentes de prueba -->
+        <testSourceDirectory>src/test/ubu/gii/dass/test/c01</testSourceDirectory>
+
         <plugins>
-            <!-- Configuración de plugins (por ejemplo, compilador de Java) -->
+            <!-- Plugin para compilar tu proyecto -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -33,7 +45,54 @@
                     <target>${maven.compiler.target}</target>
                 </configuration>
             </plugin>
-            <!-- Más plugins según sea necesario -->
+
+            <!-- Plugin para agregar directorios adicionales de fuentes de prueba -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <id>add-test-source</id>
+                        <phase>generate-test-sources</phase>
+                        <goals>
+                            <goal>add-test-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <!-- Aquí especificamos la ruta a tus archivos de prueba -->
+                                <source>src/ubu/gii/dass/test/c01</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Plugin para personalizar la ubicación de los recursos de prueba -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <id>copy-test-resources</id>
+                        <phase>process-test-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.testOutputDirectory}</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>C:\Users\david\OneDrive\Escritorio\DAAS\poolobject\src\test\ubu\gii\dass\test\c01</directory>
+                                    <!-- Aquí especificamos la ubicación de nuestros recursos de prueba -->
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Considera agregar plugins adicionales aquí según sea necesario. -->
         </plugins>
     </build>
 </project>
