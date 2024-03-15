@@ -21,6 +21,7 @@
     </dependencies>
 
     <build>
+	<sourceDirectory>src/main/ubu/gii/dass/c01</sourceDirectory>
         <plugins>
             <!-- Configuración de plugins (por ejemplo, compilador de Java) -->
             <plugin>

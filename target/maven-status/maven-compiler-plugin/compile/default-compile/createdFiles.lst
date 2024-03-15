@@ -1,0 +1,5 @@
+ubu\gii\dass\c01\Reusable.class
+ubu\gii\dass\c01\ReusablePool.class
+ubu\gii\dass\c01\Client.class
+ubu\gii\dass\c01\DuplicatedInstanceException.class
+ubu\gii\dass\c01\NotFreeInstanceException.class
